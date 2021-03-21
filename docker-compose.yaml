@@ -1,0 +1,15 @@
+version: "3"
+services:
+  cam2gcs:
+    image: "${DOCKER_REPO}"
+    restart: "always"
+    volumes:
+      - "${GCS_KEY_FILE}:/etc/.gcskeys.json"
+    environment: 
+      - "CAMERA_USERNAME=${CAMERA_USERNAME}"
+      - "CAMERA_PASSWORD=${CAMERA_PASSWORD}"
+      - "CAMERA_HOSTPATH=${CAMERA_HOSTPATH}"
+      - "CAMERA_NAME=${CAMERA_NAME}"
+      - "GCS_BUCKET_NAME=${GCS_BUCKET_NAME}"
+      - "GCS_BUCKET_PATH=${GCS_BUCKET_PATH}"
+      - "REFRESH=${REFRESH}"
